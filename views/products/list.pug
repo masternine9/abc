@@ -1,0 +1,32 @@
+extends ../layout
+
+block content
+    .row
+        .col-sm-8
+            h1=title
+        .col-sm-4
+            a(href="/products/add", class="btn btn-info float-right") Add New Product
+    table.table
+        thead
+            tr
+                th Name
+                th Description
+                th Price
+                th Actions           
+                th Rating     
+        tbody
+            each product in products
+                tr
+                    td=product.name
+                    td=product.description
+                    td=product.price
+                    td
+                        a(href="/products/delete/"+product._id, class="btn btn-danger btn-sm") Delete
+                        a(href="/products/edit/"+product._id, class="btn btn-light btn-sm") Edit
+                        a(href="/products/cart/"+product._id, class="btn btn-success btn-sm") Add To Cart
+                    td 
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star checked"></span>
+                        <span class="fa fa-star"></span>
+                        <span class="fa fa-star"></span>
